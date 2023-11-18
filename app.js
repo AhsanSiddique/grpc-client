@@ -22,13 +22,13 @@ function main() {
     if (argv.target) {
         target = argv.target;
     } else {
-        target = 'localhost:8585'
-        // target = '<your-app-name>.azurewebsites.net'
+        //target = 'localhost:8585'
+        target = 'grpc-server-app.azurewebsites.net'
     }
-    var client = new hello_proto.Greeter(target,
-        grpc.credentials.createInsecure());
     //var client = new hello_proto.Greeter(target,
-    //    grpc.credentials.createFromSecureContext());
+      //  grpc.credentials.createInsecure());
+    var client = new hello_proto.Greeter(target,
+        grpc.credentials.createFromSecureContext());
     var user;
     if (argv._.length > 0) {
         user = argv._[0];
